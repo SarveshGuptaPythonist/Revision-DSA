@@ -25,3 +25,9 @@ public class Main {
 
 }
 // Tree on page 3
+// Sample Input
+// 2
+// 2
+// Sample Output
+// hv
+// vh
