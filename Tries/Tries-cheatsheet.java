@@ -1,5 +1,48 @@
 // Question 208
 class Trie {
+    // with prefix count
+    public static class Node{
+        private Node[] children = new Node[26];
+        private int isEnd = 0;
+        private int prefixCount = 0;
+        
+        public boolean contains(char ch){
+            return (children[ch - 'a'] != null);
+        }
+        
+        public Node get(char ch){
+            return children[ch - 'a'];
+        }
+        
+        public void set(char ch){
+            children[ch - 'a'] = new Node();
+        }
+        
+        public int getFreq(){
+            return isEnd;
+        }
+        
+        public int getPref(){
+        	return prefixCount;    
+        }
+        
+        public void increaseFreq(){
+            isEnd++;
+        }
+        
+        public void decreaseFreq(){
+            isEnd--;
+        }
+        
+        public void increasePref(){
+            prefixCount++;
+        }
+        
+        public void decreasePref(){
+            prefixCount--;
+        }
+    }
+    // without prefix count
     public static class Node{
         private Node[] children = new Node[26];
         private boolean isEnd = false;
