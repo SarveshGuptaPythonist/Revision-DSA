@@ -57,6 +57,28 @@ class Trie {
         
         return curr.getEnd();
     }
+    public boolean search(String word, int idx, Node curr){
+//         words having not char but . in them, Then we can search it with them.
+        if(idx == word.length()){
+            return curr.getEnd();
+        }
+        
+        char ch = word.charAt(idx);
+        
+        if(ch != '.'){
+            if(curr.contains(ch) == false) return false;
+            return search(word, idx + 1, curr.get(ch));
+        }
+        
+        for(char chn = 'a'; chn <= 'z'; chn++){
+            if(curr.contains(chn) == false) continue;
+            
+            if(search(word, idx + 1, curr.get(chn))) 
+                return true;
+        }
+        
+        return false;
+    }
     
     public boolean startsWith(String word) {
         Node curr = root;
